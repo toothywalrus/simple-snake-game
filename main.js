@@ -186,7 +186,7 @@
 
 		self.generatePrize = function() {
 			var rand = Math.random() * 100;
-			if (rand < CONFIG.PRIZE_PROBABILITY) return;
+			if (rand > CONFIG.PRIZE_PROBABILITY) return;
 			var i = randomIntFromRange(0, CONFIG.CANVAS_SIZE.height / CONFIG.BLOCK_SIZE.height);
 			var j = randomIntFromRange(0, CONFIG.CANVAS_SIZE.width / CONFIG.BLOCK_SIZE.width);
 			var prizePos = {i: i, j: j};
