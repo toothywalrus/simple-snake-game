@@ -23,14 +23,14 @@
 			height: 500,
 		},
 		BLOCK_SIZE: {
-			width: 10,
-			height: 10,
+			width: 25,
+			height: 25,
 		},
 		START_POINT: {
 			i: 0,
 			j: 0
 		},
-		UPDATE_PERIOD: 500,
+		UPDATE_PERIOD: 100,
 		TURN_SIZE: 1,
 		BOARD_COLOR: 'white',
 		SNAKE_COLOR: 'blue',
@@ -120,6 +120,10 @@
 
 		self.game = game;
 		self.headPos = blocks[3];
+
+		self.setDirection = function(dir) {
+			direction = dir;
+		};
 
 		self.checkCollision = function(newPos) {
 			if (!canVisitPosition(newPos)) return true;
@@ -224,7 +228,8 @@
 		document.onkeydown = function(event) {
 			var direction = ARROW_KEY_CODES[event.keyCode];
 			if (direction !== undefined) {
-				snake.moveTo(direction);
+				// snake.moveTo(direction);
+				snake.setDirection(direction);
 				snake.draw();
 			}
 		};
